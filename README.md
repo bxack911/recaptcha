@@ -9,27 +9,18 @@ USAGE:
 
 На вьюхе каптчу инициализируем так:
 
-//Это callback функция
+    //Это callback функция
+    <?php
+    $this->registerJs(
+    <<<JS
+    function mycallback(){
+        alert('ttst')   
+    }
+    JS
+    , $this::POS_END);   
+    ?>
 
-<?php
-
-$this->registerJs(
-
-<<<JS
-
-function mycallback(){
-
-    alert('ttst')  
-
-}
-
-JS
-
-, $this::POS_END);  
-
-?>
-
-<?= $contact_form->field($subscribeForm, 'reCaptcha')->widget(RecaptchaWidget::className(),[
+    <?= $contact_form->field($subscribeForm, 'reCaptcha')->widget(RecaptchaWidget::className(),[
 
         //'siteKey' => '6Lf7CagUAAAAAMlkkDb9r2vNWEQ-PQdqDNSwlcZP', // Если по какой-то причине было лень залезть и указать сайткей в параметрах, то указываем тут
 
@@ -43,24 +34,24 @@ JS
 
         'jsCallback' => 'mycallback', Функция js которая вызовется после инициализации каптчи. Может пригодится, если нужно написать свой ajax валидатор'
 
-])->label(false); ?>
+    ])->label(false); ?>
 
 Подробнее об атрибутах можно почитать тут https://developers.google.com/recaptcha/docs/invisible#render_param
 
 
 В 80% случаев, будешь юзать такую инициализацию каптчи:
 
-<?= $contact_form->field($subscribeForm, 'reCaptcha')->widget(RecaptchaWidget::className(),[
+    <?= $contact_form->field($subscribeForm, 'reCaptcha')->widget(RecaptchaWidget::className(),[
 
         'action' => 'subscribeForm',
 
-])->label(false); ?>
+    ])->label(false); ?>
 
 
 
 Дальше ползем к своей моделе и добавляем валидатор. Вот таким боком:
 
-public function rules()
+    public function rules()
 
     {
 
@@ -88,7 +79,7 @@ public function rules()
 
 В 80% случаев, будешь юзать такую инициализацию карптчи:
 
-public function rules()
+    public function rules()
 
     {
 
@@ -97,19 +88,19 @@ public function rules()
            ...
 
             [['reCaptcha'], RecaptchaValidator::className(),
-            
+
                 'action' => 'action',
-                
+
                 'skipOnEmpty' => subscribeForm,
-                
+
             ]
-            
+
             ...
-            
+
         ];
-        
+
     }
-    
+
 
 
 Благодарочка автору этого фида, больше нигде не нашел нормального примера для инициализации капчти через render https://jsfiddle.net/thatguysam/g7juvkdb/
