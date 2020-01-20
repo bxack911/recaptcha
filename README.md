@@ -3,8 +3,9 @@ Recaptcha widget and validator for yii2
 USAGE:
 
 Лезем в common/config/params.php добавляем в параметры sitekey и secret:
-'siteKey' => '6Lf7CagUAAAAAMlkkDb9r2vNWEQ-PQdqDNSwlcZP',
-'secretKey' => '6Lf7CagUAAAAAJTKcJQQBTqlBYYryzLBz0WeVH0C',
+
+    'siteKey' => '6Lf7CagUAAAAAMlkkDb9r2vNWEQ-PQdqDNSwlcZP',
+    'secretKey' => '6Lf7CagUAAAAAJTKcJQQBTqlBYYryzLBz0WeVH0C',
 
 
 На вьюхе каптчу инициализируем так:
