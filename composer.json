@@ -1,0 +1,28 @@
+{
+    "name": "bxack911/recaptcha",
+    "description": "Recaptcha widget and validator for yii2",
+    "keywords": ["yii2", "captcha", "recaptcha", "google", "widget"],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "support": {
+        "source": "https://github.com/bxack911/recaptcha",
+        "issues": "https://github.com/bxack911/recaptcha/issues"
+    },
+    "authors": [
+        {
+            "name": "Bxack911",
+            "homepage": "https://github.com/bxack911/"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.11",
+        "yiisoft/yii2-httpclient": "*"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "himiklab\\yii2\\recaptcha\\": "/recaptcha"
+        }
+    },
+}
